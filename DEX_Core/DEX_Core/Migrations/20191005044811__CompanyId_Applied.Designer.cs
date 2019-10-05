@@ -3,14 +3,16 @@ using DEX_Core_WebAPI.Migrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DEX_Core_WebAPI.Migrations
 {
     [DbContext(typeof(Dex_CoreDbContext))]
-    partial class Dex_CoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191005044811__CompanyId_Applied")]
+    partial class _CompanyId_Applied
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
