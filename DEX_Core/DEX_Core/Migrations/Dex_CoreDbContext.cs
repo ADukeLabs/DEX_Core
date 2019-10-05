@@ -14,7 +14,7 @@ namespace DEX_Core_WebAPI.Migrations
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Intitial Catalog=DexCoreDB");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DexCoreDB");
         }
     }                      
-}
+}                                                                   
