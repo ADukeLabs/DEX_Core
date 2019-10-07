@@ -9,13 +9,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace DEX_Core_WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class CompanyController : Controller
+    public class CompaniesController : ControllerBase
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok();
         }
 
         // GET api/values/5
