@@ -11,7 +11,7 @@ namespace DEX_Core_WebAPI.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public int CityId { get; set; }
-        public IList<Contact> Contacts { get; set; }
+        
         //public virtual ApplicationUser User { get; set; }
     }
 }
