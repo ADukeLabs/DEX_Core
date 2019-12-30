@@ -18,18 +18,25 @@ namespace DEX_Core_WebAPI.Migrations
             base.OnConfiguring(optionsBuilder);
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Company>().HasData(
-        //        new Company { Id = 1, Name = "Datacom"},
-        //        new Company { Id = 2, Name = "Fujitsu"},
-        //        new Company { Id = 3, Name = "MetLife"}
-        //    );
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
 
-        //    modelBuilder.Entity<Contact>().HasData(
-        //        new Contact { Id = 1, Name = "Person 1", CompanyId = 1, EmailAddress = "johndoe@nowhere.com"},
-        //        new Contact { Id = 2, Name = "Person 2", CompanyId = 1, EmailAddress = "johndoe@nowhere.com" }
-        //    );
-        //}
+            modelBuilder.Entity<City>().HasData(
+                new City { Id = 1, Name = "Wellington" },
+                new City { Id = 2, Name = "Tokyo" },
+                new City { Id = 3, Name = "New York" }
+            );
+
+            modelBuilder.Entity<Company>().HasData(
+                new Company { Id = 1, Name = "Datacom", CityId = 1 },
+                new Company { Id = 2, Name = "Fujitsu", CityId = 2 },
+                new Company { Id = 3, Name = "MetLife", CityId = 3 }
+            );
+
+            modelBuilder.Entity<Contact>().HasData(
+                new Contact { Id = 1, Name = "Person 1", CompanyId = 1, EmailAddress = "johndoe@nowhere.com" },
+                new Contact { Id = 2, Name = "Person 2", CompanyId = 1, EmailAddress = "johndoe@nowhere.com" }
+            );
+        }
     }                      
 }                                                                   
