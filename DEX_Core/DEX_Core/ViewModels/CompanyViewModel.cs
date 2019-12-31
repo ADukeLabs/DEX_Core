@@ -10,7 +10,7 @@ namespace DEX_Core_WebAPI.ViewModels
     {
         public string Name { get; set; }
         public string Address { get; set; }
-        public string City { get; set; }
+        public string CityName { get; set; }
         public IList<Contact> Contacts { get; set; }
     }
 }

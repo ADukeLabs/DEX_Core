@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DEX_Core_WebAPI.Repositories;
 using AutoMapper;
+using DEX_Core_WebAPI.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,18 +23,16 @@ namespace DEX_Core_WebAPI.Controllers
             _mapper = mapper;
         }
 
-
-        // GET: api/values
         [HttpGet]
         public async Task<IActionResult> GetAllCompanies()
         {
-            var results = await _companiesRepository.GetAllCompaniesAsync();
-            return Ok(results);
+            var companies = await _companiesRepository.GetAllCompaniesAsync();
+            return Ok(_mapper.Map<CompanyViewModel[]>(companies));
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string GetCompany(int id)
         {
             return "value";
         }

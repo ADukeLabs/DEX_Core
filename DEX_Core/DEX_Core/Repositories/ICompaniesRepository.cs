@@ -14,5 +14,6 @@ namespace DEX_Core_WebAPI.Repositories
 
         //Companies
         Task<Company[]> GetAllCompaniesAsync();
+        Task<Company> CreateCompany();
     }
 }

@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using AutoMapper;
+using DEX_Core_WebAPI.Migrations;
+using DEX_Core_WebAPI.Repositories;
 
 namespace DEX_Core
 {
@@ -26,7 +28,10 @@ namespace DEX_Core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddAutoMapper();
+            services.AddDbContext<Dex_CoreDbContext>();
+            services.AddScoped<ICompaniesRepository, CompaniesRepository>();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
