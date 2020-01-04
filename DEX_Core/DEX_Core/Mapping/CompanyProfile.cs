@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DEX_Core_WebAPI.Mapping
 {
-    public class CompanyProfile :Profile
+    public class CompanyProfile : Profile
     {
         public CompanyProfile()
         {

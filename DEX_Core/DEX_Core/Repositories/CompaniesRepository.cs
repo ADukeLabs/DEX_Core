@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DEX_Core_WebAPI.Models;
+using Microsoft.EntityFrameworkCore;
+using DEX_Core_WebAPI.Migrations;
 
 namespace DEX_Core_WebAPI.Repositories
 {
     public class CompaniesRepository : ICompaniesRepository
     {
-        public void Add<T>(T entity) where T : class
+        private Dex_CoreDbContext _db = new Dex_CoreDbContext();
+
+        public Task<Company[]> GetAllCompaniesAsync(int CityID)
         {
-            throw new NotImplementedException();
+            return _db.Companies.Where(c => c.CityId == CityID).ToArrayAsync();
         }
+
+        //public void Add<T>(T entity) where T : class
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public Task<Company> CreateCompany()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete<T>(T entity) where T : class
         {
             throw new NotImplementedException();
         }
@@ -27,5 +31,12 @@ namespace DEX_Core_WebAPI.Repositories
         {
             throw new NotImplementedException();
         }
+
+        //public void Delete<T>(T entity) where T : class
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+
     }
 }

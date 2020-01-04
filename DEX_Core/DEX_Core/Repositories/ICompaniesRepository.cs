@@ -9,11 +9,15 @@ namespace DEX_Core_WebAPI.Repositories
     public interface ICompaniesRepository
     {
         //General
-        void Add<T>(T entity) where T : class;
-        void Delete<T>(T entity) where T : class;
 
-        //Companies
-        Task<Company[]> GetAllCompaniesAsync();
+        Task<Company[]> GetAllCompaniesAsync(int ID);
         Task<Company> CreateCompany();
+
+        //void Add<T>(T entity) where T : class;
+        //void Delete<T>(T entity) where T : class;
+
+        
+        
+        
     }
 }

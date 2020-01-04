@@ -16,6 +16,7 @@ namespace DEX_Core_WebAPI.Controllers
     {
         private readonly ICompaniesRepository _companiesRepository;
         private readonly IMapper _mapper;
+        
 
         public CompaniesController(ICompaniesRepository repository, IMapper mapper)
         {
@@ -24,9 +25,9 @@ namespace DEX_Core_WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCompanies()
-        {
-            var companies = await _companiesRepository.GetAllCompaniesAsync();
+        public async Task<IActionResult> GetAllCompanies(int inputID)
+        {            
+            var companies = await _companiesRepository.GetAllCompaniesAsync(inputID);
             return Ok(_mapper.Map<CompanyViewModel[]>(companies));
         }
 
