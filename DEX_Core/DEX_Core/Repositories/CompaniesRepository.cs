@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DEX_Core_WebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using DEX_Core_WebAPI.Migrations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DEX_Core_WebAPI.Repositories
 {
@@ -22,9 +23,15 @@ namespace DEX_Core_WebAPI.Repositories
         //    throw new NotImplementedException();
         //}
 
-        public Task<Company> CreateCompany()
+        public async Task<Company> CreateCompany(Company company)
         {
-            throw new NotImplementedException();
+            _db.Companies.Add(company);
+            if (await _db.SaveChangesAsync())
+            {
+                return OK();
+            }
+            
+            
         }
 
         public Task<Company[]> GetAllCompaniesAsync()
