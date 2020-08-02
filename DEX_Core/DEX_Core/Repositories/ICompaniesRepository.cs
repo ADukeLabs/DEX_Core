@@ -10,14 +10,13 @@ namespace DEX_Core_WebAPI.Repositories
     {
         //General
 
-        Task<Company[]> GetAllCompaniesAsync(int ID);
-        Task<Company> CreateCompany();
-
-        //void Add<T>(T entity) where T : class;
+        void Add(Company company);
+        void SaveAllChangesAsync();
         //void Delete<T>(T entity) where T : class;
 
-        
-        
-        
+        //Companies
+        Task<Company[]> GetAllCompaniesAsync(int ID);
+
+
     }
 }

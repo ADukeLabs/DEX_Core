@@ -18,20 +18,10 @@ namespace DEX_Core_WebAPI.Repositories
             return _db.Companies.Where(c => c.CityId == CityID).ToArrayAsync();
         }
 
-        //public void Add<T>(T entity) where T : class
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public async Task<Company> CreateCompany(Company company)
+        public void Add(Company company)
         {
             _db.Companies.Add(company);
-            if (await _db.SaveChangesAsync())
-            {
-                return OK();
-            }
-            
-            
+            _db.SaveChangesAsync();
         }
 
         public Task<Company[]> GetAllCompaniesAsync()
